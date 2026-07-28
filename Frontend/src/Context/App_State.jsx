@@ -4,7 +4,7 @@ import axios from "axios";
 
 function AppState({ children }) {
   // const url = "http://localhost:3000/api";
-  const url = import.meta.env.VITE_API_URL;
+  const url = "https://agroconnectmitr.onrender.com/api";
 
   const [token, settoken] = useState('');
   const [isauth, setisauth] = useState(false);
