@@ -12,9 +12,9 @@
 
 import pg from "pg";
 
-const db = process.env.Database_url
+const db = process.env.DATABASE_URL
   ? new pg.Client({
-      connectionString: process.env.Database_url,
+      connectionString: process.env.DATABASE_URL,
       ssl: {
         rejectUnauthorized: false,
       },

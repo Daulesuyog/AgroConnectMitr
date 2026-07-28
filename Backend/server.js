@@ -74,7 +74,7 @@ app.use("/api/application", applicationRouter);
 app.use("/api/openai", openaiRouter);
 app.use("/api/payment", payementRouter);
 app.use("/api/contact", Contact);
-console.log("DATABASE_URL:", process.env.Database_url);
+console.log("DATABASE_URL:", process.env.DATABASE_URL);
 db.connect()
   .then(() => {
     console.log("Connected to the database successfully ✅");
