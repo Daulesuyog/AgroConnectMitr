@@ -49,23 +49,23 @@
     applied_at timestamp default current_timestamp
 );
 
-create table contacts (
-   id serial PRIMARY KEY,
-   name varchar(100) not null,
-   email varchar(100) not null,
-   subject varchar(200) not null,
-   message text not null,
-   created_at timestamp default current_timestamp
-);
+-- create table contacts (
+--    id serial PRIMARY KEY,
+--    name varchar(100) not null,
+--    email varchar(100) not null,
+--    subject varchar(200) not null,
+--    message text not null,
+--    created_at timestamp default current_timestamp
+-- );
 
-CREATE TABLE screenshots (
-    screenshot_id SERIAL PRIMARY KEY,
-    user_id INTEGER NOT NULL,
-    target_id INTEGER NOT NULL,
-    image_data TEXT NOT NULL, -- Stores base64-encoded screenshot
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES farmers(farmerid) ON DELETE CASCADE,
-    FOREIGN KEY (user_id) REFERENCES workers(workerid) ON DELETE CASCADE,
-    FOREIGN KEY (target_id) REFERENCES farmers(farmerid) ON DELETE CASCADE,
-    FOREIGN KEY (target_id) REFERENCES workers(workerid) ON DELETE CASCADE
-);
+-- CREATE TABLE screenshots (
+--     screenshot_id SERIAL PRIMARY KEY,
+--     user_id INTEGER NOT NULL,
+--     target_id INTEGER NOT NULL,
+--     image_data TEXT NOT NULL, -- Stores base64-encoded screenshot
+--     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+--     FOREIGN KEY (user_id) REFERENCES farmers(farmerid) ON DELETE CASCADE,
+--     FOREIGN KEY (user_id) REFERENCES workers(workerid) ON DELETE CASCADE,
+--     FOREIGN KEY (target_id) REFERENCES farmers(farmerid) ON DELETE CASCADE,
+--     FOREIGN KEY (target_id) REFERENCES workers(workerid) ON DELETE CASCADE
+-- );
