@@ -57,16 +57,21 @@ import Contact from "./Routes/contactRouter.js";
 const app = express();
 const port = process.env.PORT || 3000;
 
+const corsOptions = {
+  origin: [
+    "http://localhost:5173",
+    "https://agroconnectmitr-frontend.onrender.com",
+    "https://agro-connect-mitr.vercel.app"
+  ],
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+};
+
+
+app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-app.use(cors({
-  origin: [
-    // "http://localhost:5173",
-    "https://agroconnectmitr-frontend.onrender.com"
-  ],
-  credentials: true
-}));
 
 app.use("/api/farmer", farmerRouter);
 app.use("/api/worker", workerRouter);
@@ -75,11 +80,10 @@ app.use("/api/application", applicationRouter);
 app.use("/api/openai", openaiRouter);
 app.use("/api/payment", payementRouter);
 app.use("/api/contact", Contact);
-console.log("DATABASE_URL:", process.env.DATABASE_URL);
+
 db.connect()
   .then(() => {
     console.log("Connected to the database successfully ✅");
-
     app.listen(port, () => {
       console.log(`Server is running on port ${port} 🚀`);
     });
